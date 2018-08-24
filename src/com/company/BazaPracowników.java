@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.*;
 
+
+//TODO ta klasa wymaga refactoru- czyszczenia kodu
 public class BazaPracowników {
 
     static Pracownik sprawdzany;
@@ -16,6 +18,8 @@ public class BazaPracowników {
         return id++;
     }
 
+
+    //TODO wyczyść tą metodę
     public static void addPracownik() {
 
         int id=0;
@@ -33,6 +37,8 @@ public class BazaPracowników {
         System.out.println("Podaj stanowisko z listy: HANDLOWIEC, KSIĘGOWY, PREZES");
         Stanowisko stanowisko = Stanowisko.valueOf(input.next());
         if (stanowisko.equals(Stanowisko.HANDLOWIEC)) {
+
+            //TODO daj to do osobnej metod np. addHandlowiec
             System.out.println("Podaj wielkość premii za sprzedaż");
             int premiaZasprzedaż = input.nextInt();
             sprawdzany = (new Handlowiec(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZasprzedaż));
@@ -54,6 +60,7 @@ public class BazaPracowników {
 
         }
         else if (stanowisko.equals(Stanowisko.KSIĘGOWY)) {
+            //TODO daj to do osobnej metod np. addKsięgowy
             System.out.println("Podaj wielkość premii za brak błędów");
             int premiaZaBrakBłędów = input.nextInt();
             sprawdzany = (new Księgowy(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZaBrakBłędów));
@@ -73,10 +80,14 @@ public class BazaPracowników {
                 System.out.println("Dodano pracownika: " + listaPracowników.get(listaPracowników.size() - 1) + " do bazy.");}
         }
         else if (stanowisko.equals(Stanowisko.PREZES)) {
+
+            //TODO daj to do osobnej metod np. addPrezes
             System.out.println("Podaj wielkość dywidendy");
             int dywidenda = input.nextInt();
             sprawdzany = (new Prezes(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, dywidenda));
             if(!listaPracowników.isEmpty()) {
+                //TODO ten FOR  powtarza się  3 razy
+
                 for (Pracownik x : listaPracowników) {
                     if (x.getImię().equals(sprawdzany.getImię()) & x.getNazwisko().equals(sprawdzany.getNazwisko()) & x.getAdres().equals(sprawdzany.getAdres())) {
                         System.out.println("Osoba o takich danych jest już w bazie.");
@@ -88,6 +99,8 @@ public class BazaPracowników {
                     }
                 }
             }else {
+
+                //TODO te dwie linijki powtarzają się  4 razy
                 listaPracowników.add(sprawdzany);
                 System.out.println("Dodano pracownika: " + listaPracowników.get(listaPracowników.size() - 1) + " do bazy.");}
         }
