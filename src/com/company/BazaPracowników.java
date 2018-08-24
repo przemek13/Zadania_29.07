@@ -65,6 +65,7 @@ public class BazaPracowników {
             int premiaZaBrakBłędów = input.nextInt();
             sprawdzany = (new Księgowy(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZaBrakBłędów));
             if(!listaPracowników.isEmpty()) {
+                //Brak metody equals w klasie pracownik i w klasach Prezes, Handlowiec itp. Mógłbyś wtedy zrobić sprawdzenie x.equals(sprawdzany)
                 for (Pracownik x : listaPracowników) {
                     if (x.getImię().equals(sprawdzany.getImię()) & x.getNazwisko().equals(sprawdzany.getNazwisko()) & x.getAdres().equals(sprawdzany.getAdres())) {
                         System.out.println("Osoba o takich danych jest już w bazie.");
