@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.*;
 
-public class BazaPracowników {
+public class BazaPracowników <T extends Pracownik> {
 
     static Pracownik sprawdzany;
 
@@ -16,7 +16,7 @@ public class BazaPracowników {
         return id++;
     }
 
-    public static void addPracownik() {
+    public static void  addPracownik () {
 
         int id=0;
         System.out.println("Podaj imię");
@@ -30,7 +30,7 @@ public class BazaPracowników {
         int nrOddziału = input.nextInt();
         System.out.println("Podaj adres oddziału");
         String adresOddziału = input.next();
-        System.out.println("Podaj stanowisko z listy: HANDLOWIEC, KSIĘGOWY, PREZES");
+        System.out.println("Podaj stanowisko z listy: HANDLOWIEC, KSIĘGOWY, PREZES, INNY");
         Stanowisko stanowisko = Stanowisko.valueOf(input.next());
         if (stanowisko.equals(Stanowisko.HANDLOWIEC)) {
             System.out.println("Podaj wielkość premii za sprzedaż");
@@ -56,7 +56,7 @@ public class BazaPracowników {
         else if (stanowisko.equals(Stanowisko.KSIĘGOWY)) {
             System.out.println("Podaj wielkość premii za brak błędów");
             int premiaZaBrakBłędów = input.nextInt();
-            sprawdzany = (new Księgowy(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZaBrakBłędów));
+           sprawdzany = (new Księgowy(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZaBrakBłędów));
             if(!listaPracowników.isEmpty()) {
                 for (Pracownik x : listaPracowników) {
                     if (x.getImię().equals(sprawdzany.getImię()) & x.getNazwisko().equals(sprawdzany.getNazwisko()) & x.getAdres().equals(sprawdzany.getAdres())) {
@@ -201,7 +201,7 @@ public class BazaPracowników {
                             printAll();
                             break;
                         case 2:
-                            addPracownik();
+                          addPracownik();
                             break;
                         case 3:
                             removePracownik();

@@ -9,7 +9,7 @@ public class Prezes extends Pracownik {
     private Stanowisko stanowisko;
     private int dywidenda;
 
-    public Prezes (String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko, int dywidenda) {
+    public Prezes(String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko, int dywidenda) {
         super(imię, nazwisko, id, adres, oddział, stanowisko);
         this.imię = imię;
         this.nazwisko = nazwisko;
@@ -33,4 +33,5 @@ public class Prezes extends Pracownik {
                 '}';
 
     }
+
 }

@@ -1,5 +1,5 @@
 package com.company;
 
 public enum Stanowisko {
-    PREZES, KSIĘGOWY, HANDLOWIEC
+    PREZES, KSIĘGOWY, HANDLOWIEC, INNY
 }

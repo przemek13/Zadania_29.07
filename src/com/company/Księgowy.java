@@ -10,7 +10,7 @@ public class Księgowy extends Pracownik {
     private Stanowisko stanowisko;
     private int premiaZaBrakBłędów;
 
-    public Księgowy(String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko, int premiaZaBrakBłędów) {
+    public Księgowy(String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko, int dywidenda) {
         super(imię, nazwisko, id, adres, oddział, stanowisko);
         this.imię = imię;
         this.nazwisko = nazwisko;
