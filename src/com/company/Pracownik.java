@@ -38,4 +38,6 @@ public abstract class Pracownik <T> {
         return adres;
     }
 
+    //TODO brak toString()
+
 }

@@ -2,6 +2,7 @@ package com.company;
 
 public class Oddział {
 
+    //TODO pola powinny być prywatne
     int nrOddziału;
     String adresOddziału;
 
