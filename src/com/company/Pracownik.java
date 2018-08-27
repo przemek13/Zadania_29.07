@@ -1,6 +1,6 @@
 package com.company;
 
-public abstract class Pracownik <T> {
+public abstract class Pracownik<T> {
 
     private String imię;
     private String nazwisko;
@@ -9,9 +9,9 @@ public abstract class Pracownik <T> {
     private Oddział oddział;
     private Stanowisko stanowisko;
 
-    Pracownik (String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko) {
-        this.imię=imię;
-        this.nazwisko=nazwisko;
+    Pracownik(String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko) {
+        this.imię = imię;
+        this.nazwisko = nazwisko;
         this.id = id;
         this.adres = adres;
         this.oddział = oddział;
@@ -38,6 +38,33 @@ public abstract class Pracownik <T> {
         return adres;
     }
 
-    //TODO brak toString()
+    public Oddział getOddział() {
+        return oddział;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pracownik)) return false;
+
+        Pracownik<?> pracownik = (Pracownik<?>) o;
+
+        if (!getImię().equals(pracownik.getImię())) return false;
+        if (!getNazwisko().equals(pracownik.getNazwisko())) return false;
+        return getAdres().equals(pracownik.getAdres());
+    }
+
+    //TODO brak toString()-DONE
+
+    @Override
+    public String toString() {
+        return "Pracownik{" +
+                "imię='" + imię + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                ", id=" + id +
+                ", adres='" + adres + '\'' +
+                ", oddział=" + oddział +
+                ", stanowisko=" + stanowisko +
+                '}';
+    }
 }

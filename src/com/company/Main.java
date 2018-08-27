@@ -7,6 +7,7 @@ public class Main {
         BazaPracowników print = new BazaPracowników();
         print.mainMenu();
 
-        //TODO używaj Reformat Code - Code -> Reformat Code
+        //TODO używaj Reformat Code - Code -> Reformat Code - DONE
+
     }
 }
