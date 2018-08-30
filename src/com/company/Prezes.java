@@ -5,8 +5,8 @@ public class Prezes extends Pracownik {
     //TODO to pole powinno tylko zostać. Resztę masz w klasie Pracownik-DONE
     private int dywidenda;
 
-    public Prezes(String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko, int dywidenda) {
-        super(imię, nazwisko, id, adres, oddział, stanowisko);
+    public Prezes(Integer id, String imię, String nazwisko, String adres, Oddział oddział, Stanowisko stanowisko, Integer dywidenda) {
+        super(id, imię, nazwisko, adres, oddział, stanowisko);
         this.dywidenda = dywidenda;
     }
 

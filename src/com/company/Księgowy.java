@@ -5,8 +5,8 @@ public class Księgowy extends Pracownik {
     //TODO to pole powinno tylko zostać. Resztę masz w klasie Pracownik-DONE
     private int premiaZaBrakBłędów;
 
-    public Księgowy(String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko, int dywidenda) {
-        super(imię, nazwisko, id, adres, oddział, stanowisko);
+    public Księgowy(Integer id, String imię, String nazwisko, String adres, Oddział oddział, Stanowisko stanowisko, Integer premiaZaBrakBłędów) {
+        super(id, imię, nazwisko, adres, oddział, stanowisko);
         this.premiaZaBrakBłędów = premiaZaBrakBłędów;
     }
 

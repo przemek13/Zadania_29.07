@@ -5,8 +5,8 @@ public class Handlowiec extends Pracownik {
     //TODO to pole powinno tylko zostać. Resztę masz w klasie Pracownik-DONE
     private int premiaZasprzedaż;
 
-    public Handlowiec(String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko, int premiaZasprzedaż) {
-        super(imię, nazwisko, id, adres, oddział, stanowisko);
+    public Handlowiec(Integer id, String imię, String nazwisko, String adres, Oddział oddział, Stanowisko stanowisko, Integer premiaZasprzedaż) {
+        super(id, imię, nazwisko, adres, oddział, stanowisko);
         this.premiaZasprzedaż = premiaZasprzedaż;
     }
 

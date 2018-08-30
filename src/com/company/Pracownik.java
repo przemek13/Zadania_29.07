@@ -1,30 +1,28 @@
 package com.company;
 
-public abstract class Pracownik<T> {
+public abstract class Pracownik {
 
     private String imię;
     private String nazwisko;
-    private int id;
+    private Integer id;
     private String adres;
     private Oddział oddział;
     private Stanowisko stanowisko;
 
-    Pracownik(String imię, String nazwisko, int id, String adres, Oddział oddział, Stanowisko stanowisko) {
+    Pracownik(Integer id, String imię, String nazwisko, String adres, Oddział oddział, Stanowisko stanowisko) {
+        this.id = id;
         this.imię = imię;
         this.nazwisko = nazwisko;
-        this.id = id;
         this.adres = adres;
         this.oddział = oddział;
         this.stanowisko = stanowisko;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public String getImię() {
-        return imię;
-    }
+    public String getImię() { return imię; }
 
     public String getNazwisko() {
         return nazwisko;
@@ -47,14 +45,19 @@ public abstract class Pracownik<T> {
         if (this == o) return true;
         if (!(o instanceof Pracownik)) return false;
 
-        Pracownik<?> pracownik = (Pracownik<?>) o;
+        Pracownik pracownik = (Pracownik) o;
 
         if (!getImię().equals(pracownik.getImię())) return false;
         if (!getNazwisko().equals(pracownik.getNazwisko())) return false;
         return getAdres().equals(pracownik.getAdres());
     }
 
-    //TODO brak toString()-DONE
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
+//TODO brak toString()-DONE
 
     @Override
     public String toString() {

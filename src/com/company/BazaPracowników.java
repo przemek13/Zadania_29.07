@@ -18,20 +18,23 @@ public class BazaPracowników {
         return id++;
     }
 
-    public static void addPracownik() {
+    public static <T> T getData(String message, Class<T> type) {
+        Scanner input = new Scanner(System.in);
+        System.out.println(message);
+        if (type.getCanonicalName().equals(String.class.getCanonicalName())) {
+            return type.cast(input.nextLine());
+        } else
+            return type.cast(input.nextInt());
+    }
 
+    public static <T> void addPracownik() {
         int id = 0;
-        System.out.println("Podaj imię");
-        String imię = input.next();
-        System.out.println("Podaj nazwisko");
-        String nazwisko = input.next();
         id = generatorID();
-        System.out.println("Podaj adres pracownika");
-        String adres = input.next();
-        System.out.println("Podaj numer oddziału");
-        int nrOddziału = input.nextInt();
-        System.out.println("Podaj adres oddziału");
-        String adresOddziału = input.next();
+        String imię = getData("Podaj imię", String.class);
+        String nazwisko = getData("Podaj nazwisko", String.class);
+        String adres = getData("Podaj adres pracownika", String.class);
+        Integer nrOddziału = getData("Podaj numer oddziału", Integer.class);
+        String adresOddziału = getData("Podaj adres oddziału", String.class);
         System.out.println("Podaj stanowisko z listy: HANDLOWIEC, KSIĘGOWY, PREZES");
         Stanowisko stanowisko = Stanowisko.valueOf(input.next());
         if (stanowisko.equals(Stanowisko.HANDLOWIEC)) {
@@ -46,22 +49,22 @@ public class BazaPracowników {
 
     public static void addHandlowiec(String imię, String nazwisko, String adres, int nrOddziału, String adresOddziału, Stanowisko stanowisko) {
         System.out.println("Podaj wielkość premii za sprzedaż");
-        int premiaZasprzedaż = input.nextInt();
-        sprawdzany = (new Handlowiec(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZasprzedaż));
+        Integer premiaZasprzedaż = input.nextInt();
+        sprawdzany = (new Handlowiec(id, imię, nazwisko, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZasprzedaż));
         addSprawdzany(sprawdzany);
     }
 
     public static void addKsięgowy(String imię, String nazwisko, String adres, int nrOddziału, String adresOddziału, Stanowisko stanowisko) {
         System.out.println("Podaj wielkość premii za brak błędów");
-        int premiaZaBrakBłędów = input.nextInt();
-        sprawdzany = (new Księgowy(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZaBrakBłędów));
+        Integer premiaZaBrakBłędów = input.nextInt();
+        sprawdzany = (new Księgowy(id, imię, nazwisko, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, premiaZaBrakBłędów));
         addSprawdzany(sprawdzany);
     }
 
     public static void addPrezes(String imię, String nazwisko, String adres, int nrOddziału, String adresOddziału, Stanowisko stanowisko) {
         System.out.println("Podaj wielkość dywidendy");
-        int dywidenda = input.nextInt();
-        sprawdzany = (new Prezes(imię, nazwisko, id, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, dywidenda));
+        Integer dywidenda = input.nextInt();
+        sprawdzany = (new Prezes(id, imię, nazwisko, adres, new Oddział(nrOddziału, adresOddziału), stanowisko, dywidenda));
         addSprawdzany(sprawdzany);
     }
 
